@@ -69,8 +69,8 @@ class AuthController extends Controller
             'password' => bcrypt($request->password)
         ]);
 
-        $token = JWTAuth::fromUser($user);
-        return response()->json(compact('user','token'), 201);
+        $token = auth()->login($user);
+        return response()->json(compact('user', 'token'), 201);
     }
 
     /**
@@ -106,15 +106,20 @@ class AuthController extends Controller
      * )
      */
 
-    public function login()
+    public function login(Request $request)
     {
-        $credentials = request(['email', 'password']);
+        $credentials = $request->only('email', 'password');
 
-        if (! $token = auth()->attempt($credentials)) {
+        if (!$token = auth()->attempt($credentials)) {
             return response()->json(['error' => 'No autorizado'], 401);
         }
-
-        return $this->respondWithToken($token);
+    
+        $user = auth()->user();
+    
+        return response()->json([
+            'token' => $token,
+            'email' => $user->email 
+        ]);
     }
 
     /**

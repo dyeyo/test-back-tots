@@ -1,10 +1,10 @@
-# Proyecto Laravel con Documentación Swagger
+# Test TOTS
 
-Este es un proyecto Laravel con un enfoque en la gestión de espacios, utilizando autenticación basada en JWT y documentado con Swagger para facilitar la consulta y uso de los endpoints. A continuación, se describen los pasos para la instalación y configuración del proyecto, así como la manera de visualizar la documentación de la API.
+This is a Laravel project focused on space management, using JWT-based authentication and documented with Swagger to facilitate the querying and use of the endpoints. Below are the steps for installing and configuring the project, as well as how to view the API documentation.
 
-## Requisitos previos
+## Prerequisites
 
-Antes de comenzar con la instalación, asegúrate de tener los siguientes requisitos instalados:
+Before starting the installation, make sure you have the following requirements installed:
 
 - PHP ^8.0
 - Composer
@@ -12,11 +12,20 @@ Antes de comenzar con la instalación, asegúrate de tener los siguientes requis
 - Node.js & npm
 - MySQL o PostgreSQL
 
-## Configuración del entorno
+## Environment Setup
 
-1. **Clonar el repositorio:**
+1. **Clone the repository::**
 
    ```bash
    git clone https://github.com/usuario/proyecto-laravel.git
    cd proyecto-laravel
+
+2. **Run the project:**
+
+   ```bash
    php artisan serve
+
+2. **Run tests:**
+
+   ```bash
+   php artisan test
